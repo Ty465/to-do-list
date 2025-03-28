@@ -1,8 +1,8 @@
-// this is how we grab id elements from html
+
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
-//addTask() is the id for the button
+
 function addTask() {
   if (inputBox.value === "") {
     alert("You must add a note!");
@@ -11,7 +11,7 @@ function addTask() {
     li.innerHTML = inputBox.value;
     listContainer.appendChild(li);
 
-    /*span is the css for an x */
+
     let span = document.createElement("span");
     span.innerHTML = "\u00d7";
     li.appendChild(span);
