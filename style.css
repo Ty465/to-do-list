@@ -137,11 +137,12 @@ ul li span:hover {
   margin-left: 47%;
   text-align: center;
   box-shadow: inset #555 5px 5px 10px;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 800px) {
   .container {
-    width: 90vmin;
+    width: 100vmin;
     height: 115vmin;
   }
   .todo-app {
