@@ -68,9 +68,9 @@ button {
   border-radius: 50px;
   transition: ease-out 0.5s;
 }
-button:hover {
-  transition: ease-in.5s;
-  background-color: linear-gradient(60deg, #2c6ae7, #d613d6);
+
+button:active {
+  transform: scale(1.1);
 }
 
 ul li {
@@ -116,4 +116,35 @@ ul li span {
 ul li span:hover {
   background: #edeef0;
   border-radius: 50%;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  color: rgb(209, 217, 230);
+  margin: auto;
+}
+
+.num {
+  font-size: 2rem;
+  color: #12e079;
+  background-color: linear-gradient(60deg, #2c6ae7, #12e079);
+  border: none;
+  border-radius: 20%;
+  outline: none;
+  width: 100px;
+  margin-left: 47%;
+  text-align: center;
+  box-shadow: inset #555 5px 5px 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 90vmin;
+    height: 115vmin;
+  }
+  .todo-app {
+    font-size: 1rem;
+  }
 }
