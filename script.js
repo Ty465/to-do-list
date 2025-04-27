@@ -9,11 +9,12 @@ function addTask() {
     alert("You must add a note!");
   } else {
     let li = document.createElement("li");
-    li.textContent = inputBox.value;
+    li.textContent = inputBox.value.replace(/</g, "&lt;").replace(/>/g, "&gt;"); 
     listContainer.appendChild(li);
-    {
-      input.value = parseInt(input.value) + 1;
-    }
+
+    counter++;
+    input.value = counter;
+    localStorage.setItem("counter", counter);
 
     /*span is the css for an x */
     let span = document.createElement("span");
@@ -26,7 +27,7 @@ function addTask() {
 
 inputBox.addEventListener("keypress", function (event) {
   let key = event.key;
-  let regex = new RegExp("^[a-zA-Z0-9]+$");
+  let regex = new RegExp("^[a-zA-Z0-9 ]+$"); 
   if (!regex.test(key)) {
     event.preventDefault();
     return false;
@@ -41,9 +42,11 @@ listContainer.addEventListener(
       saveData();
     } else if (e.target.tagName === "SPAN") {
       e.target.parentElement.remove();
-      {
-        input.value = parseInt(input.value) - 1;
-      }
+
+      counter--;
+      input.value = counter;
+      localStorage.setItem("counter", counter);
+
       saveData();
     }
   },
@@ -56,5 +59,8 @@ function saveData() {
 
 function showTask() {
   listContainer.innerHTML = localStorage.getItem("data");
+
+  counter = parseInt(localStorage.getItem("counter")) || 0;
+  input.value = counter;
 }
 showTask();
